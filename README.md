@@ -1,4 +1,4 @@
-# capstone
+# Watch List
 
 <p> Watch List is an app the allows users to add movies they wish to watch in the future so they don't forget them once they finally get the time to watch a movie</p>
 
@@ -7,7 +7,7 @@
 <h1>Technologies Used</h1>
 
 <ul>
-  </li>React Native</li>
+  <li>React Native</li>
   <li>JavaScript</li>
 </ul>
   
