@@ -1,6 +1,6 @@
 # Watch List
 
-<p> Watch List is an app the allows users to add movies they wish to watch in the future so they don't forget them once they finally get the time to watch a movie</p>
+<p> Watch List is an app that allows users to create a list of movies that may be scattered throughout different streaming services or that they wish to watch in the future and add them to one centralized place so they both don't forget about the movie or don't have to keep switching services to figure out what they want to watch</p>
 
 <br />
 
@@ -9,6 +9,8 @@
 <ul>
   <li>React Native</li>
   <li>JavaScript</li>
+  <li>CSS</li>
+  <li>HTML</li>
 </ul>
   
 <br />
@@ -27,4 +29,5 @@
   <li>have a web version of the app</li>
   <li>implement an API that will generate the movies poster next to the title</li>
   <li>have a link that will direct you to IMBD to watch the trailer</li>
+  <li>implement materialize for better styling</li>
 </ul>
