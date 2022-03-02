@@ -7,6 +7,7 @@
 <h1>Technologies Used</h1>
 
 <ul>
+  </li>React Native</li>
   <li>JavaScript</li>
 </ul>
   
