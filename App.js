@@ -1,8 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
 import React from "react";
-import { StyleSheet, Text, View, Button, SafeAreaView, TextInput} from 'react-native';
+import { StyleSheet, Text, View, Button, SafeAreaView, TextInput, Pressable} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator} from '@react-navigation/native-stack';
+
+
 
 const styles = StyleSheet.create({
   input: {
@@ -13,32 +15,72 @@ const styles = StyleSheet.create({
     margin: 20,
     borderWidth: 2,
     padding: 10,
+    backgroundColor: 'white',
   },
   header: {
     fontSize: 25,
     marginTop: 20,
+    color: 'white',
+    fontWeight: '800',
   },
   button: {
-    marginTop: 40,
-    fontSize: 40,
+    margin: 20,
+    backgroundColor: 'lightgreen',
+    height: 30,
+    width: 100,
+    borderRadius: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 2,
+    borderColor: 'white',
+  },
+  homeButton: {
+    margin: 20,
+    backgroundColor: 'lightgreen',
+    height: 30,
+    width: 100,
+    borderRadius: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 2,
+    borderColor: 'white',
   },
   unwatched: {
     fontSize: 30,
+    color: 'white'
+  },
+  titleWatch: {
+    fontSize: 50,
+    fontWeight: '600',
+    fontStyle: 'italic',
+    color: 'white',
+    margin: -13,
+    paddingRight: 78
+  },
+  titleList: {
+    fontSize: 50,
+    fontWeight: '600',
+    fontStyle: 'italic',
+    color: 'white',
+    margin: -14,
+    paddingLeft: 110
   }
 });
 
 function HomeScreen({ navigation }) {
   
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'flex-start'}}>
-      <Button
-        title="Add a Movie"
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: 'black'}}>
+      <Text style={styles.titleWatch}>Watch</Text>
+      <Text style={styles.titleList}>List</Text>
+      <Pressable
+        style={styles.homeButton}
         onPress={() => navigation.navigate('Add Movie')}
-      />
-      <Button
-      title="Movies I've Watcehd"
+      ><Text>Add a Movie</Text></Pressable>
+      {/* <Button
+      title="Movies I've Watched"
       onPress={() => navigation.navigate('Watched')} 
-      />
+      /> */}
       
     </View>
   );
@@ -48,11 +90,11 @@ const NewMovie = () => {
   const [text, onChangeText] = React.useState(null)
   // const [service, onChangeService] = React.useState(null)
 
-  const unwatched = []
+  const [unwatched, setunwatched] = React.useState([])
 
   return (
-    <SafeAreaView style={{ flex: 1, alignItems: 'center', justifyContent: 'flex-start'}}>
-      <Text style={styles.header}>Title</Text>
+    <SafeAreaView style={{ flex: 1, alignItems: 'center', justifyContent: 'flex-start',}}>
+      <Text style={styles.header}>Movie Title</Text>
       <TextInput
         style={styles.input}
         onChangeText={onChangeText}
@@ -66,12 +108,12 @@ const NewMovie = () => {
         value={service}
         placeholder='streaming service'
       /> */}
-      <Button
+      <Pressable
         style={styles.button}
-        title="ADD"
-        onPress={() => (unwatched.push(text))}
-      />
-      <Text style={styles.unwatched}>{unwatched}</Text>
+        onPress={() => {setunwatched([...unwatched, text]); console.log(unwatched)}}>
+        <Text>ADD</Text>
+      </Pressable>
+      <Text style={styles.unwatched}>{unwatched} </Text>
     </SafeAreaView>
   )
 }
@@ -81,8 +123,10 @@ const NewMovie = () => {
 function AddMovie({ navigation }) {
   
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'flex-start' }}>
-      <Button title="Watch List" onPress={() => navigation.navigate('Watch List')} />
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'flex-start', backgroundColor: 'black'}}>
+      {/* <Pressable style={styles.button} onPress={() => navigation.navigate('Watch List')} >
+        <Text>Watch List</Text>
+      </Pressable> */}
       <NewMovie />
     </View>
   );
